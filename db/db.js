@@ -1,6 +1,5 @@
 const mysql = require('mysql2');
 
-
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',  // Modifica con il tuo utente MySQL
@@ -9,7 +8,6 @@ const db = mysql.createConnection({
   dateStrings: true,
 });
 
-
 db.connect((err) => {
   if (err) {
     console.error('Errore di connessione al database: ', err);
@@ -17,6 +15,5 @@ db.connect((err) => {
     console.log('Connesso al database MySQL');
   }
 });
-
 
 module.exports = db;

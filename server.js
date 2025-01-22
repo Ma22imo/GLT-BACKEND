@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const db = require('./db/db'); // Connessione al database MySQL
 
 // Import delle rotte
-const loginRoutes = require('./routes/loginRoutes'); // Rotte per il login
-const cantiereDashRoutes = require('./routes/cantiereDashRoutes'); // Rotte per i cantieri e interventi
-const badgeRespRoutes = require('./routes/badgeRespRoutes'); // Rotte per il responsabile
-const cantiereRoutes = require('./routes/cantiereRoutes'); // Rotte per i cantieri
+const loginRoutes = require('./routes/loginRoutes'); 
+const cantiereDashRoutes = require('./routes/cantiereDashRoutes'); 
+const badgeRespRoutes = require('./routes/badgeRespRoutes'); 
+const cantiereRoutes = require('./routes/cantiereRoutes'); 
 const interventoRoutes = require('./routes/interventoRoutes');
 
 const app = express();
@@ -18,10 +18,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Rotte
-app.use('/api/login', loginRoutes);           // Rotte relative al login
-app.use('/api/cantieriDash', cantiereDashRoutes);   // Rotte relative ai cantieri e interventi
-app.use('/api/badge', badgeRespRoutes); // Rotte relative ai responsabili
-app.use('/api/cantieri', cantiereRoutes); // Rotte relative ai cantieri
+app.use('/api/login', loginRoutes);           
+app.use('/api/cantieriDash', cantiereDashRoutes);   
+app.use('/api/badge', badgeRespRoutes); 
+app.use('/api/cantieri', cantiereRoutes);
 app.use('/api/interventi', interventoRoutes);
 
 // Test di connessione al server
@@ -33,4 +33,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server in ascolto sulla porta ${port}`);
 });
-

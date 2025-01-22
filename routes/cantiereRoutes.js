@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // Recupera un cantiere specifico con interventi
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
-  console.log(`Richiesta di recupero dettagli cantiere con ID: ${id}`); // Log per debug
+  //console.log(`Richiesta di recupero dettagli cantiere con ID: ${id}`); // Log per debug
 
   try {
     const cantiereQuery = 'SELECT * FROM cantiere WHERE ID = ?';
@@ -45,7 +45,7 @@ router.get('/:id', async (req, res) => {
 // Elimina un cantiere
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
-  console.log(`Richiesta di eliminazione cantiere con ID: ${id}`); // Log per debug
+  //console.log(`Richiesta di eliminazione cantiere con ID: ${id}`); // Log per debug
 
   try {
     const query = 'DELETE FROM cantiere WHERE ID = ?';

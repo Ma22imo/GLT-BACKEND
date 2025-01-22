@@ -1,22 +1,14 @@
 const express = require('express');
 const db = require('../db/db'); // Connessione al database
-
 const router = express.Router();
 
-/**
- * API per ottenere i dettagli di un responsabile
- * Endpoint: GET /api/responsabile/:id
- */
+// API per ottenere i dettagli di un responsabile Endpoint: GET /api/responsabile/:id 
 router.get('/:id', async (req, res) => {
   const { id } = req.params; // Ottieni l'ID dal parametro della URL
 
   try {
     // Query per ottenere i dettagli del responsabile in base all'ID
-    const [rows] = await db.promise().query(`
-      SELECT Nome, Cognome, nome_utente
-      FROM responsabile
-      WHERE ID = ?
-    `, [id]);
+    const [rows] = await db.promise().query("SELECT Nome, Cognome, nome_utente FROM responsabile WHERE ID = ?", [id]);
 
     // Se nessun responsabile è trovato, restituisce un errore 404
     if (rows.length === 0) {
@@ -32,10 +24,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-/**
- * API per ottenere tutti i responsabili
- * Endpoint: GET /api/responsabile
- */
+// API per ottenere tutti i responsabili Endpoint: GET /api/responsabile/ 
 router.get('/', async (req, res) => {
   try {
     // Query per ottenere tutti i responsabili
